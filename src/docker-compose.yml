@@ -10,6 +10,9 @@ services:
   discountdb:
     image: postgres
 
+  orderdb:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+
   pgadmin:
     image: dpage/pgadmin4
 
@@ -39,6 +42,12 @@ services:
     build:
       context: .
       dockerfile: AspNet.Services/Discount/Discount.gRPC/Dockerfile
+
+  ordering.api:
+    image: ${DOCKER_REGISTRY-}orderingapi
+    build:
+      context: .
+      dockerfile: AspNet.Services/Ordering/Ordering.API/Dockerfile
 
 volumes:
   mongo_data:
