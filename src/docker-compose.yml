@@ -52,6 +52,12 @@ services:
       context: .
       dockerfile: AspNet.Services/Ordering/Ordering.API/Dockerfile
 
+  ocelot.api.gateway:
+    image: ${DOCKER_REGISTRY-}ocelotapigateway
+    build:
+      context: .
+      dockerfile: AspNet.API.Gateways/Ocelot.API.Gateway/Dockerfile
+
 volumes:
   mongo_data:
   portainer_data:
