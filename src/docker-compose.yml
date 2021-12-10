@@ -58,6 +58,12 @@ services:
       context: .
       dockerfile: AspNet.API.Gateways/Ocelot.API.Gateway/Dockerfile
 
+  shopping.aggregator.api:
+    image: ${DOCKER_REGISTRY-}shoppingaggregatorapi
+    build:
+      context: .
+      dockerfile: AspNet.API.Gateways/Shopping.Aggregator.API/Dockerfile
+
 volumes:
   mongo_data:
   portainer_data:
